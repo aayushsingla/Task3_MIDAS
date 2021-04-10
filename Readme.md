@@ -22,7 +22,10 @@ In ["Clothing >> Women's Clothing >> Fusion Wear>> ...], we choose "Clothing" as
 
 Doing so leaves us with 260 unique categories. As evident from the given pie chart, only some categories have good number of examples. Number of examples in each label vary from as much as 5000 examples to as low as 1 examples. We observed that CLothing category has 5000 examples approx. which is very high compared to the remaining dataset. So, we decided to go one step further and divide clothing category into Men's clothing, Women's Clothing and Kid's Clothing.
 
-![alt text](./src/pie_categories.png "Category Distribution in raw data")
+
+![alt text](./docs/pie_categories.png "Category Distribution in raw data")
+
+
 We observed following distribution:
 |   | Number of examples|
 | ------------- | ------------- |
@@ -61,14 +64,19 @@ Count Vectorizer is based on frequency of the words occuring in the sentence. Th
 We got vocab of 17225 with our dataset\_500 and 19608 with our dataset\_200.
 
 With dataset\_500, we got the following results:
-![alt text](./src/classification_report_naive_500.png "Classification report using multinomial with dataset_500")
-![alt text](./src/confusion_matrix_naive_500.png "confusion matrix usig naive bayes with dataset_500")
+
+
+![alt text](./docs/classification_report_naive_500.png "Classification report using multinomial with dataset_500")
+![alt text](./docs/confusion_matrix_naive_500.png "confusion matrix usig naive bayes with dataset_500")
 
 As we can observe that, overall accuracy obtained for 13-class classification task is 95% and we have also obtained very good f1-scores with naive bayes, indicating that there wasn't much of dataset imabalance in this dataset. Also, for all the classes, we obtained precision over 90% except for one class for which precision is 89%, indicating good performance of the model.
 
 With dataset\_200, we got the following results:
-![alt text](./src/classification_report_naive_200.png "Classification report using multinomial with dataset_200")
-![alt text](./src/confusion_matrix_naive_200.png "confusion matrix usig naive bayes with dataset_200")
+
+
+![alt text](./docs/classification_report_naive_200.png "Classification report using multinomial with dataset_200")
+![alt text](./docs/confusion_matrix_naive_200.png "confusion matrix usig naive bayes with dataset_200")
+
 
 we can observe that, overall accuracy obtained for 20-class classification task is 91%. However, we can also see that, the f1-scores have fallen drastically, compared to the 13-class classification task indicating dataset imbalance in this dataset. 
 We can address this problem using Data Augmentation.
