@@ -1,5 +1,5 @@
 # Product Category Classification
-## Submission for IIITD MIDAS RA
+#### Submission for IIITD MIDAS RA
 
 The given dataset is obtained from flipkart, which is an online e-commerce giant and lists 20K products with the product name, product category tree, descriptions and other various fields. 
 
@@ -74,7 +74,8 @@ we can observe that, overall accuracy obtained for 20-class classification task 
 We can address this problem using Data Augmentation.
 
 #### Training our own Word2Vec vocab using gensim
-We tried training our own vector embedding using word2vec from gensim and 
+We tried training our own vector embedding using word2vec from gensim and for dataset\_500, we obtained vocab of 17235 words and 19648 with dataset\_200. we trained our model for 30 epochs which took almost 2 minutes.
+
 
 ## Data Augmentation
 
