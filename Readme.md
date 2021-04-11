@@ -6,12 +6,13 @@ The given dataset is obtained from flipkart, which is an online e-commerce giant
 ## Tasks
 - [Tasks](#tasks)
 - [Data Preprocessing](#data-preprocessing)
+  + [General Preprocessing](#general-preprocessing)
+  + [Preprocessing our data for LSTM's and CNN's](#preprocessing-our-data-for-lstms-and-cnns)
 - [Text to vector representation](#text-to-vector-representation-and-training)
   + [CountVectorizer with Naive Bayes](#countvectorizer-with-naive-bayes)
   + [Training our own Word2Vec vocab using gensim](##training-our-own-word2vec-vocab-using-gensim)
-  + [Preprocessing our data for LSTM's and CNN's](#preprocessing-our-data-for-lstms-and-cnns)
-  + [Models Description](#models-description)
 - [Deep Learning Network's performance](#deep-learning-networks-performance)
+  + [Models Description](#models-used)
   + [Bi-Diectional LSTM](#bi-diectional-lstm)
   + [CNN](#cnn)
 - [Data Augmentation](#data-augmentation)
@@ -20,6 +21,8 @@ The given dataset is obtained from flipkart, which is an online e-commerce giant
 
 ## Data Preprocessing
 ----
+#### General Preprocessing
+
 On careful observation of dataset and after sorting, we can easily observe that there are many duplicate entries in this dataset. On dropping duplicate values, we found 3448 entries in total. 
  
 Now our next task is to identify cateogries in product category map. We choose the foremost term to be category for the product. 
@@ -58,6 +61,11 @@ Moving on to the product description, following operations were carried on the t
 
 **Note**: Lemmatization and stemming was also an possibility but was not done.
 
+#### Preprocessing our data for LSTM's and CNN's
+- we tokenized words using Keras preprocessing and use word2ec to convert them into vectors for our model
+- we created embedding for our complete vocab using word2vec for our embedding layers in LSTM and CNN
+- we encoded y labels using one hot encoding
+
 
 ## Text to vector representation and training
 ----
@@ -92,11 +100,9 @@ We can address this problem using Data Augmentation.
 #### Training our own Word2Vec vocab using gensim
 We tried training our own vector embedding using word2vec from gensim and for dataset\_500, we obtained vocab of 17235 words and 19648 with dataset\_200. we trained our model for 30 epochs which took almost 2 minutes. We used feature vectors of size 300.
 
-#### Preprocessing our data for LSTM's and CNN's
-- we tokenized words using Keras preprocessing and use word2ec to convert them into vectors for our model
-- we created embedding for our complete vocab using word2vec for our embedding layers in LSTM and CNN
-- we encoded y labels using one hot encoding
 
+## Deep Learning Network's performance
+----
 #### Models used
 
 We tried on 2 kind of layers: Bi-Directional LSTM's and CNN's for our model. LSTM model has 46,724 trainable params and CNN model has 235,540 trainable params. we compiled both our models using sparse_categorical_crossentropy loss function and adam optimizer. Maximum Epochs for both the models were set to 50 and Early stopping was used based on loss metric and patience of 3 epochs. Batch size of 64 was used for training.
@@ -105,7 +111,7 @@ We tried on 2 kind of layers: Bi-Directional LSTM's and CNN's for our model. LST
 ![alt text](./docs/model_lstm.png "LSTM Model")
 ![alt text](./docs/model_cnn.png "CNN Model")
 
-## Deep Learning Network's performance
+
 #### Bi-Diectional LSTM
 For dataset 500, Model using LSTM converged to  99.36% training accuracy and approx. 97.30% validation accuracy in just 28 epochs. On test set, this model performed as shown.
 
@@ -148,17 +154,17 @@ Hence, we couldn't proceed with any of these techniques due to lack of resources
 
 For Dataset 500, ie. 13-class classification problem.
 
-| Model Used  | Word Embedding Used|weighed precision|weighed recall|weighed f1-score|
-| ------------- | ------------- |------------- |------------- |------------- |
-| Multinomial NB (Bayes Classifier)  | Bag of Words (count vectorizer) |0.95 |0.95 |0.95 |
-| Bi-Directional LSTM Model  | Self-trained Word2Vec |0.97 |0.96|0.96|
-| CNN Model  | Self-trained Word2Vec |0.97 |0.97| 0.97|
+| Model Used  | epochs taken |Word Embedding Used|weighed precision|weighed recall|weighed f1-score|
+| ------------- | ------------- |------------- |------------- |------------- |------------- |
+| Multinomial NB (Bayes Classifier)  | - | Bag of Words (count vectorizer) |0.95 |0.95 |0.95 |
+| Bi-Directional LSTM Model | 28 | Self-trained Word2Vec |0.97 |0.96|0.96|
+| CNN Model |18 | Self-trained Word2Vec |0.97 |0.97| 0.97|
 
 
 For Dataset 200, ie. 20-class classification problem.
 
-| Model Used  | Word Embedding Used | weighed precision | weighed recall | weighed f1-score |
-| ------------- | ------------- |------------- |------------- |------------- |
-| Multinomial NB (Bayes Classifier)  | Bag of Words (count vectorizer) |0.92 | 0.91 |0.91 |
-| Bi-Directional LSTM Model  | Self-trained Word2Vec |0.95 |0.95|0.95|
-| CNN Model  | Self-trained Word2Vec |0.95 |0.95| 0.94|
+| Model Used  |epochs taken | Word Embedding Used | weighed precision | weighed recall | weighed f1-score |
+| ------------- | ------------- |------------- |------------- |------------- |------------- |
+| Multinomial NB (Bayes Classifier)| - | Bag of Words (count vectorizer) |0.92 | 0.91 |0.91 |
+| Bi-Directional LSTM Model| 48 | Self-trained Word2Vec |0.95 |0.95|0.95|
+| CNN Model |17 | Self-trained Word2Vec |0.95 |0.95| 0.94|
