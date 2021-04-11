@@ -82,7 +82,36 @@ we can observe that, overall accuracy obtained for 20-class classification task 
 We can address this problem using Data Augmentation.
 
 #### Training our own Word2Vec vocab using gensim
-We tried training our own vector embedding using word2vec from gensim and for dataset\_500, we obtained vocab of 17235 words and 19648 with dataset\_200. we trained our model for 30 epochs which took almost 2 minutes.
+We tried training our own vector embedding using word2vec from gensim and for dataset\_500, we obtained vocab of 17235 words and 19648 with dataset\_200. we trained our model for 30 epochs which took almost 2 minutes. We used feature vectors of size 300.
+
+#### Preprocessing our data for LSTM's and CNN's
+- we tokenized words using Keras preprocessing and use word2ec to convert them into vectors for our model
+- we created embedding for our complete vocab using word2vec for our embedding layers in LSTM and CNN
+- we encoded y labels using one hot encoding
+
+#### Models used
+
+We tried on 2 kind of layers: Bi-Directional LSTM's and CNN's for our model. LSTM model has 46,724 trainable params and CNN model has 235,540 trainable params. we compiled both our models using sparse_categorical_crossentropy loss function and adam optimizer. Maximum Epochs for both the models were set to 50 and Early stopping was used based on loss metric and patience of 3 epochs. Batch size of 64 was used for training.
+
+
+![alt text](./docs/model_lstm.png "LSTM Model")
+![alt text](./docs/model_cnn.png "CNN Model")
+
+## Results
+#### Bi-Diectional LSTM
+For dataset 500, Model using LSTM converged to  99.36% training accuracy and approx. 97.30% validation accuracy in just 28 epochs. On test set, this model performed as shown.
+![alt text](./docs/classification_report_cnn_500.png "classification_report_lstm_500")
+
+For dataset 200, Model using LSTM converged to 98.49% training accuracy and approx. 94.62% validation accuracy in 48 epochs. On test set, this model performed as shown.
+![alt text](./docs/classification_report_cnn_200.png "classification_report_lstm_200")
+
+
+#### CNN
+For dataset 500, Model using CNN converged to  99.88% training accuracy and approx. 97.60% validation accuracy in just 18 epochs. On test set, this model performed as shown.
+![alt text](./docs/classification_report_cnn_500.png "classification_report_cnn_500")
+
+For dataset 200, Model using CNN converged to  99.67% training accuracy and approx. 95% validation accuracy in just 18 epochs. On test set, this model performed as shown.
+![alt text](./docs/classification_report_cnn_200.png "classification_report_cnn_200")
 
 
 ## Data Augmentation
