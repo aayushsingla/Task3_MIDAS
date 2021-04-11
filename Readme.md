@@ -100,10 +100,10 @@ We tried on 2 kind of layers: Bi-Directional LSTM's and CNN's for our model. LST
 ## Results
 #### Bi-Diectional LSTM
 For dataset 500, Model using LSTM converged to  99.36% training accuracy and approx. 97.30% validation accuracy in just 28 epochs. On test set, this model performed as shown.
-![alt text](./docs/classification_report_cnn_500.png "classification_report_lstm_500")
+![alt text](./docs/classification_report_lstm_500.png "classification_report_lstm_500")
 
 For dataset 200, Model using LSTM converged to 98.49% training accuracy and approx. 94.62% validation accuracy in 48 epochs. On test set, this model performed as shown.
-![alt text](./docs/classification_report_cnn_200.png "classification_report_lstm_200")
+![alt text](./docs/classification_report_lstm_200.png "classification_report_lstm_200")
 
 
 #### CNN
