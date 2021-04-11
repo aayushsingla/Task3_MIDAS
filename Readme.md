@@ -53,6 +53,13 @@ Hence, on observation, we created two datasets by dropping categories with 500 e
 
 It is also important to mention that while examples for each category range from 20.6% to 1% in case of our second dataset ie. in which we dropped categories with less than 200 examples, making it a bit imbalanced dataset. To solve this, we tried various **Data Augmentation Techniques** which are discussed later.
 
+Final data distribution in both our datasets:
+dataset_500 on left and dataset_200 on right.
+
+
+![alt text](./docs/dataset_500.png "Data distribution in dataset 500") ![alt text](./docs/dataset_200.png "Data distribution in dataset 200")
+
+
 Moving on to the product description, following operations were carried on the text data: 
 - converting text to lower case
 - removing extra spaces, new line character and all other punctuation characters.
