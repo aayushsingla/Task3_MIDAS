@@ -4,23 +4,31 @@
 The given dataset is obtained from flipkart, which is an online e-commerce giant and lists 20K products with the product name, product category tree, descriptions and other various fields. 
 
 ## Tasks
-
-- Data Preprocessing
-- Text to vector representation
-- Model Selection and training
-- Data Augmentation
+- [Tasks](#tasks)
+- [Data Preprocessing](#data-preprocessing)
+- [Text to vector representation](#text-to-vector-representation-and-training)
+  + [CountVectorizer with Naive Bayes](#countvectorizer-with-naive-bayes)
+  + [Training our own Word2Vec vocab using gensim](##training-our-own-word2vec-vocab-using-gensim)
+  + [Preprocessing our data for LSTM's and CNN's](#preprocessing-our-data-for-lstms-and-cnns)
+  + [Models Description](#models-description)
+- [Deep Learning Network's performance](#deep-learning-networks-performance)
+  + [Bi-Diectional LSTM](#bi-diectional-lstm)
+  + [CNN](#cnn)
+- [Data Augmentation](#data-augmentation)
+- [Results](#results)
 
 
 ## Data Preprocessing
 ----
-On careful observation of dataset and after sorting, we can easily observe that there are many duplicate entries in this dataset. On dropping duplicate values, we found 3448 entries to be difficult. 
+On careful observation of dataset and after sorting, we can easily observe that there are many duplicate entries in this dataset. On dropping duplicate values, we found 3448 entries in total. 
  
 Now our next task is to identify cateogries in product category map. We choose the foremost term to be category for the product. 
 
 Example: 
 In ["Clothing >> Women's Clothing >> Fusion Wear>> ...], we choose "Clothing" as our major category. We eliminate all other categories.
 
-Doing so leaves us with 260 unique categories. As evident from the given pie chart, only some categories have good number of examples. Number of examples in each label vary from as much as 5000 examples to as low as 1 examples. We observed that CLothing category has 5000 examples approx. which is very high compared to the remaining dataset. So, we decided to go one step further and divide clothing category into Men's clothing, Women's Clothing and Kid's Clothing.
+Doing so leaves us with 260 unique categories. As evident from the given pie chart, only some categories have good number of examples. Number of examples in each label vary from as much as 5000 examples to as low as 1 examples. We observed that CLothing category has 5000 examples approx. which is very high compared to the remaining dataset. 
+So, we decided to go one step further and divide clothing category into Men's clothing, Women's Clothing and Kid's Clothing.
 
 
 ![alt text](./docs/pie_categories.png "Category Distribution in raw data")
